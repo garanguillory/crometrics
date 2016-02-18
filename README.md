@@ -45,79 +45,6 @@ import appendCss from 'crometrics/append-css';
 appendCss(css);
 ```
 
-### async
-
-Provides a method of avoiding nested callbacks when performing multiple asynchronous operations (note that this module does not enforce that the operations be asynchronous). The module exposes two methods `series` and `waterfall`.
-
-**series(queue, iterator, [done])**
-
-Applies the function `iterator` to each item in the `queue` array, in sequence.
-The `iterator` is called with an item from the list, and a done callback for when it
-has finished.
-
-```javascript
-import { series } from 'crometrics/async';
-
-// Sum array items asynchronously using a series.
-series([1, 2, 3, 4], (curr, next, prev = 0) => {
-	// curr => the current item value
-	// prev => the previous item value
-	// next => the callback function with previous bound to the current item or the first argument passed to next on the previous iteration.
-  setTimeout(() => {
-    next(prev + curr);
-  }, 0);
-}, (result) => {
-  // do something with the result
-});
-```
-
-**waterfall(queue)**
-
-Runs the `queue` array of functions in sequence, each passing its results to the next in
-the array.
-
-```javascript
-import { waterfall } from 'crometrics/async';
-
-waterfall([
-	function start(next) {
-		next(0);
-	},
-	function add2(running, next) {
-		next(running + 2);
-	},
-	function multiplyBy5(running, next) {
-		next(running * 5);
-	},
-	function(result) {
-		// do something with the result
-	},
-]);
-```
-
-### batch
-
-Breaks an array into smaller arrays of a given length.
-
-```javascript
-import batch from 'crometrics/batch';
-
-var longArray = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-var smallerArrays = batch(longArray, 2);
-
-/*
-
-smallerArrays -> [
-	['zero', 'one'],
-	['two', 'three'],
-	['four', 'five'],
-	['six', 'seven'],
-	['eight', 'nine']
-]
-
-*/
-```
-
 ### console-polyfill
 
 @tomfuertes - Can you help fill in a description and example for this one?
@@ -150,24 +77,6 @@ import coremetrics from 'crometrics/coremetrics';
 coremetrics(0123456789);
 ```
 
-### curry
-
-Returns a curried function that will not be called until all arguments received.
-
-```javascript
-import curry from 'crometrics/curry';
-
-var madlib = curry(function(pronoun, adjective, noun) {
-	console.log(pronoun+' is a '+adjective+' '+noun);
-});
-
-var myMadlib = madlib('Tesla');
-//...
-myMadlib = myMadlib('awesome');
-//...
-myMadlib('scientist');
-```
-
 ### debounce
 
 Prevents a function from being recalled repeatedly. The function will be called again after it stops being called for N milliseconds.
@@ -181,29 +90,6 @@ import debounce from 'crometrics/debounce';
 $(window).on('scroll', debounce(function() {
   console.log('The user started scrolling and this function didn\'t execute until there was a 100ms break in the scrolling');
 }, 100));
-```
-
-### Deferred
-
-Provide a light-weight promise implementation.
-
-```javascript
-import Deferred from 'crometrics/Deferred';
-
-function doSomethingAsync() {
-  const dfd = Deferred();
-
-  setTimeout(() => {
-    if (true) dfd.resolve('it worked');
-    else dfd.reject('it failed');
-  }, 1000);
-
-  return dfd.promise();
-}
-
-doSomethingAsync()
-  .success(function successHandler() {})
-  .fail(function failureHandler() {});
 ```
 
 ### domready
@@ -226,35 +112,6 @@ import getParam from 'crometrics/get-param';
 
 //When run on the page: http://test.com?name=bob
 console.log(getParam('name')); //Outputs: "bob"
-```
-
-### goal
-Fires strings into auto-detected analytics installs.
-
-```javascript
-const goal = require('crometrics/goal').bind(null, 'exp1-foo');
-
-goal('click', '#bar');
-```
-
-### google-analytics
-
-Sends information to googleAnalytics.
-
-```javascript
-import googleAnalytics from 'crometrics/google-analytics';
-
-googleAnalytics(1234567, 'my-custom-variable');
-```
-
-### google-tag-manager
-
-Exposes information to googleTagManager by setting a global variable.
-
-```javascript
-import googleTagManager from 'crometrics/google-tag-manager';
-
-googleTagManager(1234567, 'my-custom-variable');
 ```
 
 ### load-css
@@ -303,18 +160,6 @@ $.notify('Hello!');
 $.notify('Uh oh!', 'warn');
 ```
 
-### object-assign-polyfill
-
-Gives all browsers object.assign capabilities.
-
-```javascript
-import anything from 'crometrics/object-assign-polyfill';
-
-var obj = { a: 1 };
-var copy = Object.assign({}, obj);
-console.log(copy); // { a: 1 }
-```
-
 ### onload-css
 
 Adds onload support for asynchronous stylesheets loaded with loadCSS. Used with loadCSS above.
@@ -326,16 +171,6 @@ var stylesheet = loadCSS('path/to/mystylesheet.css');
 onloadCSS(stylesheet, function() {
     console.log('Stylesheet has asynchronously loaded.');
 });
-```
-
-### optimizely-jquery-polyfill
-
-Adds a few functions (`on`, `off`, `fadeIn`, `fadeOut`) to Optimizely's version of jQuery.
-
-```javascript
-import polyfill from 'crometrics/optimizely-jquery-polyfill';
-
-polyfill($); // local ref to optimizely.$
 ```
 
 ### preload
@@ -392,31 +227,6 @@ store.get('key'); //Returns 'value'
 store.del('key');
 ```
 
-### time-triggered-manual-activation
-
-Activates an Optimizely experiment after a specified time
-
-```javascript
-import activateExperiment from 'crometrics/time-triggered-manual-activation';
-
-activateExperiment(1445021756, 9876543210); //After 18:55:56 GMT on Fri, 16 Oct 2015, Optimizely experiment 9876543210 will be activated
-```
-
-### time-window
-
-Runs a supplied callback only between the specified start and end times
-
-```javascript
-import timeWindow from 'crometrics/time-window';
-
-var callback = function(){
-	console.log('Callback successfully called!');
-};
-
-timeWindow(1445021756, 2147483647, callback); //Logs 'Callback successfully called!' since the current time is probably between 18:55:56 GMT on Fri, 16 Oct 2015 and 03:14:07 GMT on Tue, 19 Jan 2038
-```
-To use a trusted server time instead of relying on the client time, try passing the response from http://i.clrhd.me/timestamp as the currentTime parameter
-
 ### throttle
 
 Borrowed from http://underscorejs.org/docs/underscore.html
@@ -442,26 +252,6 @@ Uses double-handlebar syntax to template a string with a data object.
 import timpl from 'crometrics/timpl';
 
 console.log(timpl('<div>{{name}}</div>', {name: 'Bob'})); //Outputs: <div>Bob</div>
-```
-
-### track
-
-Sends a prop to SiteCatalyst.
-
-```javascript
-const track = require('crometrics/track').bind(null, 'prop52');
-
-track('some-event');
-```
-
-### universal-analytics
-
-Sends information to Google Universal Analytics.
-
-```javascript
-import universalAnalytics from 'crometrics/universal-analytics';
-
-universalAnalytics(1234567, 'my-custom-variable');
 ```
 
 ### when
