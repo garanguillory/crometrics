@@ -3,4 +3,3 @@ dependencies:
   pre:
     - sudo apt-get update; sudo apt-get install libicu52
     - sudo curl --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-2.1.1
-    - chmod a+x /home/ubuntu/bin/phantomjs
