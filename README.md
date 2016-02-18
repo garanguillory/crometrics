@@ -67,15 +67,6 @@ cookie.set(cookieName, cookieVal, 365);
 cookie.get(cookieName); //Outputs 'the-value-of-my-cookie'
 cookie.del(cookieName);
 ```
-### coremetrics
-
-Sends information to CoreMetrics
-
-```javascript
-import coremetrics from 'crometrics/coremetrics';
-
-coremetrics(0123456789);
-```
 
 ### debounce
 

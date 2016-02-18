@@ -1,5 +1,4 @@
 import chai, { assert, expect } from 'chai';
-import { series, waterfall } from '../src/async';
 import returnVisitor from '../src/return-visitor';
 
 describe('#returnVisitor()', () => {
