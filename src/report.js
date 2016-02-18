@@ -9,7 +9,7 @@
  * @return {undefined}
  */
 
-const UA = 'UA-33947856-2';
+const UA = 'UA-37339465-3';
 const endpoint = 'https://ssl.google-analytics.com/collect?';
 import log from './log';
 
