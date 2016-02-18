@@ -6,7 +6,7 @@ TODO: Quick marketing use case / maybe a screenshot
 
 ```shell
 # npm install phantomjs -g
-npm install --save-dev CROmetrics/crometrics
+npm install --save-dev crometrics
 ```
 
 ## Usage
