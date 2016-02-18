@@ -1,7 +1,7 @@
 {
-  "name": "clearhead",
+  "name": "crometrics",
   "version": "0.0.46",
-  "description": "Clearhead Dev Module Library",
+  "description": "CROmetrics Dev Module Library",
   "scripts": {
     "test": "gulp test",
     "compile": "rm -rf ./lib/* && babel --plugins object-assign -d ./lib/ src/",
@@ -11,21 +11,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/clearhead/clearhead.git"
+    "url": "git+https://github.com/CROmetrics/crometrics.git"
   },
   "bugs": {
-    "url": "https://github.com/clearhead/clearhead/issues"
+    "url": "https://github.com/CROmetrics/crometrics/issues"
   },
-  "homepage": "https://github.com/clearhead/clearhead#readme",
+  "homepage": "https://github.com/CROmetrics/crometrics#readme",
   "author": "casecode <casey.r.white@gmail.com>",
   "contributors": [
     {
       "name": "tomfuertes",
       "email": "tomfuertes@gmail.com"
-    },
-    {
-      "name": "beaulm",
-      "email": "beaulm@gmail.com"
     }
   ],
   "license": "MIT",

@@ -9,7 +9,7 @@ describe('#loadScript()', () => {
 
 });
 
-// TODO: https://github.com/clearhead/optimizely-snippets/blob/master/tests/LoadScriptSpec.js
+// TODO: https://github.com/crometrics/optimizely-snippets/blob/master/tests/LoadScriptSpec.js
 // describe('experiment/load-script.js', function() {
 //   var script, firstScript, onload = function () {};
 //   beforeEach(function() {
@@ -24,7 +24,7 @@ describe('#loadScript()', () => {
 //     spyOn(firstScript.parentNode, 'insertBefore');
 //   });
 //   if ('should load a script w/ an onload callback', function() {
-//       clearhead.loadScript('//demo', onload);
+//       crometrics.loadScript('//demo', onload);
 //       expect(document.createElement).toHaveBeenCalledWith('script');
 //       expect(document.getElementsByTagName).toHaveBeenCalledWith('script');
 //       expect(script.type).toBe('text/javascript');

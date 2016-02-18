@@ -10,9 +10,9 @@
 
 function googleTagManager(experimentId, customVariable) {
   try {
-    window.clearhead = window.clearhead || {};
-    window.clearhead.gtm = window.clearhead.gtm || {};
-    Object.defineProperty(window.clearhead.gtm, 'ab' + customVariable, {
+    window.crometrics = window.crometrics || {};
+    window.crometrics.gtm = window.crometrics.gtm || {};
+    Object.defineProperty(window.crometrics.gtm, 'ab' + customVariable, {
       get: function() {
         var name, val;
         try {

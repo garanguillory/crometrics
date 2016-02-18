@@ -3,7 +3,7 @@
 
 // copies everything from ./lib/ into the top level directory
 // so that it can be accessed via an easier api as:
-// import module from 'clearhead/module';
+// import module from 'crometrics/module';
 var fs = require('fs');
 
 var dirname = __dirname.split('/');

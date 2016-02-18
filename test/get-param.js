@@ -9,9 +9,9 @@ describe('#getParam()', () => {
 
 });
 
-// TODO: https://github.com/clearhead/optimizely-snippets/blob/master/tests/GetParamSpec.js
+// TODO: https://github.com/crometrics/optimizely-snippets/blob/master/tests/GetParamSpec.js
 // describe('experiment/get-param.js', function() {
 //   it('can get params', function() {
-//     expect(window.clearhead.getParam('p', '?p=v')).toBe('v');
+//     expect(window.crometrics.getParam('p', '?p=v')).toBe('v');
 //   });
 // });

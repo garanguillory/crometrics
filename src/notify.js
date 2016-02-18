@@ -8,13 +8,13 @@
  * @return {Function} - the curried function
  */
 
-const url = '//rawgit.com/clearhead/clearhead/master/bower_components/notifyjs/dist/notify-combined.min.js';
+const url = '//rawgit.com/crometrics/crometrics/master/bower_components/notifyjs/dist/notify-combined.min.js';
 let script = null;
 
 function notify(...args) {
 
   // only notify in debug mode
-  if (!/clearhead-debug=true/.test(document.cookie)) {
+  if (!/crometrics-debug=true/.test(document.cookie)) {
     return;
   }
 

@@ -6,12 +6,12 @@
  * @return {void}
  *
  * usage:
- *   const goal = require('clearhead/goal').bind(null, 'exp1-foo');
+ *   const goal = require('crometrics/goal').bind(null, 'exp1-foo');
  *   goal('click', '#bar'); ==>
  *   // optimizely.push(['trackEvent', 'exp1-foo-click-#bar'])
  *   // monetateQ.push(['trackEvent', ['exp1-foo-click-#bar']])
  *   // s.tl() // won't fire b/c !/^(prop|evar)/i.test(args[0])
- *   // dataLayer.push({event:'clearhead.goal', meta:{category, action, label}})
+ *   // dataLayer.push({event:'crometrics.goal', meta:{category, action, label}})
  *   // ga('send', 'event', 'exp1-foo', 'click', '#bar')
  *   // _gaq.push(['_trackEvent', 'exp1-foo', 'click', '#bar']);
  *
@@ -19,12 +19,11 @@
  *   goal('exp1-foo', 'clicked-header'); ==>
  *   // optimizely.push(['trackEvent', 'prop46-exp1-foo-clicked-header'])
  *   // monetateQ.push(['trackEvent', ['prop46-exp1-foo-clicked-header']])
- *   // require('clearhead/track')('prop46', 'exp1-foo-clicked-header');
+ *   // require('crometrics/track')('prop46', 'exp1-foo-clicked-header');
  *
  */
 import track from './track';
-const log = require('./log').bind(null, 'clearhead/goal:');
-const dataLayerTrigger = require('./deps/datalayer-trigger')();
+const log = require('./log').bind(null, 'crometrics/goal:');
 
 function goal(category, ...args /*option, label*/ ) {
   'use strict';
@@ -54,7 +53,7 @@ function goal(category, ...args /*option, label*/ ) {
   // google tag manager > ga > _gaq
   if (!!window.dataLayer && !!window.dataLayer.push) {
     let push = {
-      event: dataLayerTrigger,
+      event: 'crometrics.goal',
       meta: {
         category, action: args[0], label: args[1],
       },

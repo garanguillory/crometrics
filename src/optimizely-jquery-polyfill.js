@@ -6,7 +6,7 @@
  * @return {void}
  *
  * usage:
- *   import pollyfill from 'clearhead/optimizely-jquery-polyfill';
+ *   import pollyfill from 'crometrics/optimizely-jquery-polyfill';
  *   pollyfill($); // local ref to optimizely.$
  *
  */

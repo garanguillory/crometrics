@@ -1,4 +1,4 @@
-# `clearhead` [![Circle CI](https://circleci.com/gh/clearhead/clearhead.svg?style=svg)](https://circleci.com/gh/clearhead/clearhead)
+# `crometrics` [![Circle CI](https://circleci.com/gh/CROmetrics/crometrics.svg?style=svg)](https://circleci.com/gh/CROmetrics/crometrics)
 
 TODO: Quick marketing use case / maybe a screenshot
 
@@ -6,7 +6,7 @@ TODO: Quick marketing use case / maybe a screenshot
 
 ```shell
 # npm install phantomjs -g
-npm install --save-dev clearhead
+npm install --save-dev CROmetrics/crometrics
 ```
 
 ## Usage
@@ -17,9 +17,9 @@ Make sure browserify is installed, either in your project or globally (`npm inst
 
 ```javascript
 //test.js
-var slugify = require('clearhead/slugify');
+var slugify = require('crometrics/slugify');
 
-var articleTitle = 'How to use the Clearhead module library!';
+var articleTitle = 'How to use the module library!';
 var articleSlug = slugify(articleTitle);
 ```
 Build your code: `browserify test.js -o output.js`
@@ -27,7 +27,7 @@ Build your code: `browserify test.js -o output.js`
 ### Inside a project
 
 ```javascript
-import timpl from 'clearhead/timpl';
+import timpl from 'crometrics/timpl';
 ```
 
 NOTE: ES6 +browserify compilation best used alongside `gulp-clearbuild`
@@ -40,7 +40,7 @@ Appends css once jQuery + head element have finished loading.
 
 ```javascript
 import css from './v1.scss';
-import appendCss from 'clearhead/append-css';
+import appendCss from 'crometrics/append-css';
 
 appendCss(css);
 ```
@@ -56,7 +56,7 @@ The `iterator` is called with an item from the list, and a done callback for whe
 has finished.
 
 ```javascript
-import { series } from 'clearhead/async';
+import { series } from 'crometrics/async';
 
 // Sum array items asynchronously using a series.
 series([1, 2, 3, 4], (curr, next, prev = 0) => {
@@ -77,7 +77,7 @@ Runs the `queue` array of functions in sequence, each passing its results to the
 the array.
 
 ```javascript
-import { waterfall } from 'clearhead/async';
+import { waterfall } from 'crometrics/async';
 
 waterfall([
 	function start(next) {
@@ -100,7 +100,7 @@ waterfall([
 Breaks an array into smaller arrays of a given length.
 
 ```javascript
-import batch from 'clearhead/batch';
+import batch from 'crometrics/batch';
 
 var longArray = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
 var smallerArrays = batch(longArray, 2);
@@ -131,7 +131,7 @@ smallerArrays -> [
 Sets, gets, and deletes a cookie with a given name, value, and optional expiration date (in days).
 
 ```javascript
-import cookie from 'clearhead/cookie';
+import cookie from 'crometrics/cookie';
 
 var cookieName = 'the-name-of-my-cookie';
 var cookieVal = 'the-value-of-my-cookie';
@@ -145,7 +145,7 @@ cookie.del(cookieName);
 Sends information to CoreMetrics
 
 ```javascript
-import coremetrics from 'clearhead/coremetrics';
+import coremetrics from 'crometrics/coremetrics';
 
 coremetrics(0123456789);
 ```
@@ -155,7 +155,7 @@ coremetrics(0123456789);
 Returns a curried function that will not be called until all arguments received.
 
 ```javascript
-import curry from 'clearhead/curry';
+import curry from 'crometrics/curry';
 
 var madlib = curry(function(pronoun, adjective, noun) {
 	console.log(pronoun+' is a '+adjective+' '+noun);
@@ -175,7 +175,7 @@ Prevents a function from being recalled repeatedly. The function will be called 
 See https://css-tricks.com/the-difference-between-throttling-and-debouncing/ for a good writeup for the difference between debounce and throttle.
 
 ```javascript
-import debounce from 'clearhead/debounce';
+import debounce from 'crometrics/debounce';
 
 //The inner function will only be called after the user has stopped scrolling for 100ms
 $(window).on('scroll', debounce(function() {
@@ -188,7 +188,7 @@ $(window).on('scroll', debounce(function() {
 Provide a light-weight promise implementation.
 
 ```javascript
-import Deferred from 'clearhead/Deferred';
+import Deferred from 'crometrics/Deferred';
 
 function doSomethingAsync() {
   const dfd = Deferred();
@@ -210,7 +210,7 @@ doSomethingAsync()
 
 Runs a function on domready - to be used on sites that don't have jQuery right away and/or not at all but you need to wait till the DOM is ready to run something.
 ```javascript
-import domready from 'clearhead/domready';
+import domready from 'crometrics/domready';
 
 domready(function() {
 	console.log('The dom is ready! Do your thing.');
@@ -222,7 +222,7 @@ domready(function() {
 Gets a param value from location.search.
 
 ```javascript
-import getParam from 'clearhead/get-param';
+import getParam from 'crometrics/get-param';
 
 //When run on the page: http://test.com?name=bob
 console.log(getParam('name')); //Outputs: "bob"
@@ -232,7 +232,7 @@ console.log(getParam('name')); //Outputs: "bob"
 Fires strings into auto-detected analytics installs.
 
 ```javascript
-const goal = require('clearhead/goal').bind(null, 'exp1-foo');
+const goal = require('crometrics/goal').bind(null, 'exp1-foo');
 
 goal('click', '#bar');
 ```
@@ -242,7 +242,7 @@ goal('click', '#bar');
 Sends information to googleAnalytics.
 
 ```javascript
-import googleAnalytics from 'clearhead/google-analytics';
+import googleAnalytics from 'crometrics/google-analytics';
 
 googleAnalytics(1234567, 'my-custom-variable');
 ```
@@ -252,7 +252,7 @@ googleAnalytics(1234567, 'my-custom-variable');
 Exposes information to googleTagManager by setting a global variable.
 
 ```javascript
-import googleTagManager from 'clearhead/google-tag-manager';
+import googleTagManager from 'crometrics/google-tag-manager';
 
 googleTagManager(1234567, 'my-custom-variable');
 ```
@@ -262,7 +262,7 @@ googleTagManager(1234567, 'my-custom-variable');
 Loads a CSS file asynchronously.
 
 ```javascript
-import loadCSS from 'clearhead/load-css';
+import loadCSS from 'crometrics/load-css';
 
 loadCSS('../styles/styles.css', null, media);
 ```
@@ -272,7 +272,7 @@ loadCSS('../styles/styles.css', null, media);
 Loads a script and fires callback.
 
 ```javascript
-import loadScript from 'clearhead/load-script';
+import loadScript from 'crometrics/load-script';
 
 function optCallBack() {
   console.log('my callback function is firing after the script loads!');
@@ -285,7 +285,7 @@ loadScript('../src/main.js', optCallBack);
 Like a regular console.log but only fires in dev environments (localhost, preview links, debug cookies etc) so you can leave it in your code while pushing to production.
 
 ```javascript
-import log from 'clearhead/log';
+import log from 'crometrics/log';
 
 log('Something is happening'); //Outputs to the console when run from http://localhost:8000/ but not http://clientwebsite.com
 ```
@@ -295,7 +295,7 @@ log('Something is happening'); //Outputs to the console when run from http://loc
 Notify.js is a jQuery plugin to provide simple yet fully customisable notifications.
 
 ```javascript
-import notify from 'clearhead/notify';
+import notify from 'crometrics/notify';
 
 $.notify('Hello!');
 
@@ -308,7 +308,7 @@ $.notify('Uh oh!', 'warn');
 Gives all browsers object.assign capabilities.
 
 ```javascript
-import anything from 'clearhead/object-assign-polyfill';
+import anything from 'crometrics/object-assign-polyfill';
 
 var obj = { a: 1 };
 var copy = Object.assign({}, obj);
@@ -320,7 +320,7 @@ console.log(copy); // { a: 1 }
 Adds onload support for asynchronous stylesheets loaded with loadCSS. Used with loadCSS above.
 
 ```javascript
-import onloadCSS from 'clearhead/onload-css';
+import onloadCSS from 'crometrics/onload-css';
 
 var stylesheet = loadCSS('path/to/mystylesheet.css');
 onloadCSS(stylesheet, function() {
@@ -333,7 +333,7 @@ onloadCSS(stylesheet, function() {
 Adds a few functions (`on`, `off`, `fadeIn`, `fadeOut`) to Optimizely's version of jQuery.
 
 ```javascript
-import polyfill from 'clearhead/optimizely-jquery-polyfill';
+import polyfill from 'crometrics/optimizely-jquery-polyfill';
 
 polyfill($); // local ref to optimizely.$
 ```
@@ -343,7 +343,7 @@ polyfill($); // local ref to optimizely.$
 Preloads images.
 
 ```javascript
-import preload from 'clearhead/preload';
+import preload from 'crometrics/preload';
 
 var arrayOfLoadedImages = preload('./imgs/img01.jpg', './imgs/img02.jpg', './imgs/img03.jpg', './imgs/img04.jpg');
 ```
@@ -361,7 +361,7 @@ Sends an error back to GA as events for wallboards. Why a module? Because not al
 Fires code when a user returns to an experiment.
 
 ```javascript
-import returnVisitor from 'clearhead/return-visitor';
+import returnVisitor from 'crometrics/return-visitor';
 
 returnValue('unique-name-for-tracking-users-for-just-this-call', function() {
 	console.log('The user was last here over 30min ago');
@@ -373,11 +373,11 @@ returnValue('unique-name-for-tracking-users-for-just-this-call', function() {
 Returns the 'slug' of a string (replaces non-word characters with hyphens).
 
 ```javascript
-import slugify from 'clearhead/slugify';
+import slugify from 'crometrics/slugify';
 
-var articleTitle = 'How to use the Clearhead module library!';
+var articleTitle = 'How to use the module library!';
 var articleSlug = slugify(articleTitle);
-console.log(articleSlug); //Outputs: how-to-use-the-clearhead-module-library
+console.log(articleSlug); //Outputs: how-to-use-the-module-library
 ```
 
 ### store
@@ -385,7 +385,7 @@ console.log(articleSlug); //Outputs: how-to-use-the-clearhead-module-library
 Exposes a simple pattern to get / set from localStorage.
 
 ```javascript
-import store from 'clearhead/store';
+import store from 'crometrics/store';
 
 store.set('key', 'value');
 store.get('key'); //Returns 'value'
@@ -397,7 +397,7 @@ store.del('key');
 Activates an Optimizely experiment after a specified time
 
 ```javascript
-import activateExperiment from 'clearhead/time-triggered-manual-activation';
+import activateExperiment from 'crometrics/time-triggered-manual-activation';
 
 activateExperiment(1445021756, 9876543210); //After 18:55:56 GMT on Fri, 16 Oct 2015, Optimizely experiment 9876543210 will be activated
 ```
@@ -407,7 +407,7 @@ activateExperiment(1445021756, 9876543210); //After 18:55:56 GMT on Fri, 16 Oct 
 Runs a supplied callback only between the specified start and end times
 
 ```javascript
-import timeWindow from 'clearhead/time-window';
+import timeWindow from 'crometrics/time-window';
 
 var callback = function(){
 	console.log('Callback successfully called!');
@@ -426,7 +426,7 @@ Returns a function, that, when invoked, will only be triggered at most once duri
 See https://css-tricks.com/the-difference-between-throttling-and-debouncing/ for a good writeup for the difference between throttle and debounce.
 
 ```javascript
-import throttle from 'clearhead/throttle';
+import throttle from 'crometrics/throttle';
 
 //The inner function will only be called every 100ms while the user is scrolling
 $(window).on('scroll', throttle(function() {
@@ -439,7 +439,7 @@ $(window).on('scroll', throttle(function() {
 Uses double-handlebar syntax to template a string with a data object.
 
 ```javascript
-import timpl from 'clearhead/timpl';
+import timpl from 'crometrics/timpl';
 
 console.log(timpl('<div>{{name}}</div>', {name: 'Bob'})); //Outputs: <div>Bob</div>
 ```
@@ -449,7 +449,7 @@ console.log(timpl('<div>{{name}}</div>', {name: 'Bob'})); //Outputs: <div>Bob</d
 Sends a prop to SiteCatalyst.
 
 ```javascript
-const track = require('clearhead/track').bind(null, 'prop52');
+const track = require('crometrics/track').bind(null, 'prop52');
 
 track('some-event');
 ```
@@ -459,7 +459,7 @@ track('some-event');
 Sends information to Google Universal Analytics.
 
 ```javascript
-import universalAnalytics from 'clearhead/universal-analytics';
+import universalAnalytics from 'crometrics/universal-analytics';
 
 universalAnalytics(1234567, 'my-custom-variable');
 ```

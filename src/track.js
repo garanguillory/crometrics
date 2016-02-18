@@ -10,7 +10,7 @@ function track(prop, goalName) {
   s.linkTrackVars = prop;
   s.linkTrackEvents = 'None';
   s[prop] = goalName; // unique
-  s.tl(true, 'o', 'Clearhead Goal'); // static params / do not update
+  s.tl(true, 'o', 'CROmetrics Goal'); // static params / do not update
 }
 
 export default track;
