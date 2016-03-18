@@ -4,9 +4,9 @@
   "description": "CROmetrics Dev Module Library",
   "scripts": {
     "test": "gulp test",
-    "compile": "rm -rf ./lib/* && babel --plugins object-assign -d ./lib/ src/",
+    "compile": "node bin/compile.js && node node_modules/babel-cli/bin/babel.js --plugins transform-object-assign src/ -d ./lib/",
     "prepublish": "npm run compile",
-    "postinstall": "./bin/postinstall.js",
+    "postinstall": "node bin/postinstall.js",
     "bump": "npm test && npm version patch -m 'bump to v%s' && npm publish && git push --follow-tags"
   },
   "repository": {
@@ -26,9 +26,9 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "babel": "^5.8.19",
-    "babel-core": "^5.8.22",
-    "babel-plugin-object-assign": "^1.2.1",
+    "babel-cli": "^6.6.4",
+    "babel-core": "^6.7.0",
+    "babel-plugin-transform-object-assign": "^6.5.0",
     "babelify": "^6.1.3",
     "browserify": "^13.0.0",
     "chai": "^3.2.0",
@@ -48,7 +48,9 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "mocha": "^2.2.5",
     "mocha-jsdom": "^1.0.0",
+    "path": "^0.12.7",
     "phantomjs-prebuilt": "^2.1.3",
+    "rimraf": "^2.5.2",
     "sinon": "^1.15.4",
     "through2": "^2.0.0",
     "watchify": "^3.7.0"

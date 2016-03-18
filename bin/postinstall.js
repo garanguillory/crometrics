@@ -5,11 +5,9 @@
 // so that it can be accessed via an easier api as:
 // import module from 'crometrics/module';
 var fs = require('fs');
+var path = require('path');
 
-var dirname = __dirname.split('/');
-dirname.pop();
-dirname = dirname.join('/');
-dirname += '/lib/';
+var dirname = path.resolve(__dirname,'../lib');
 
 var dirs = [];
 
@@ -17,9 +15,9 @@ try { dirs = fs.readdirSync(dirname); }catch(e) {}
 
 dirs.forEach(function (op) {
   if (op.charAt(0) === '.') return;
-  var from = dirname + op;
-  var to = from.replace('/lib/', '/');
-  // console.log('op:', op, 'from:', from, 'to:', to);
+  var from = dirname + path.sep + op;
+  var to = from.replace(path.sep+'lib'+path.sep, path.sep);
+  //console.log('op:', op, 'from:', from, 'to:', to);
   fs.renameSync(from, to);
 });
 
