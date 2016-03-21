@@ -1,5 +1,5 @@
 import gulp from 'gulp';
-import babel from 'babel/register';
+import babel from 'babel-register';
 import babelify from 'babelify';
 import through2 from 'through2';
 import browserify from 'browserify';

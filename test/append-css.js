@@ -1,5 +1,5 @@
 import chai, { assert, expect } from 'chai';
-import phantom from 'phantomjs'
+//import phantom from 'phantomjs'
 import appendCss from '../src/append-css';
   
 describe('#appendCss()', () => {
