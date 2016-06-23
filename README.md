@@ -83,6 +83,18 @@ $(window).on('scroll', debounce(function() {
 }, 100));
 ```
 
+### debug
+
+`debugger;` activation helper based on `cro_debug=true` in query param. Also sets a cookie like in the `log` helper so future pageviews have `debugger;` enabled as well.
+
+```javascript
+import debug from 'crometrics/debug';
+
+function someAsyncThing() {
+  debug();
+  doOtherThingsThatYouMightWantToInspectViaABreakpoint();
+}
+
 ### domready
 
 Runs a function on domready - to be used on sites that don't have jQuery right away and/or not at all but you need to wait till the DOM is ready to run something.
