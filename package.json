@@ -1,6 +1,6 @@
 {
   "name": "crometrics",
-  "version": "0.1.3",
+  "version": "0.1.7",
   "description": "CROmetrics Dev Module Library",
   "scripts": {
     "test": "gulp test",

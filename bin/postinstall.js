@@ -16,7 +16,9 @@ try { dirs = fs.readdirSync(dirname); }catch(e) {}
 dirs.forEach(function (op) {
   if (op.charAt(0) === '.') return;
   var from = dirname + path.sep + op;
-  var to = from.replace(path.sep+'lib'+path.sep, path.sep);
+  var fromArray = from.split(path.sep);
+  fromArray.splice(fromArray.lastIndexOf('lib'), 1);
+  var to = fromArray.join(path.sep);
   //console.log('op:', op, 'from:', from, 'to:', to);
   fs.renameSync(from, to);
 });
